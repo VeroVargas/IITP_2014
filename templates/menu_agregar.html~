@@ -1,0 +1,38 @@
+$def with ()
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Gourmet Virtual</title>
+  <meta charset=utf-8 /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="../static/form.css" media="screen" />
+</head>
+
+<body>
+	<section id="principal">
+		<section id="titulo">
+				<h1>Gourmet Virtual</h1>
+		</section>
+		<section id="cuerpo">
+			<section id="menu">
+					<img id="imagen" src="../static/gif.gif" /><br/>
+				<ul class="navbar">
+					<li><img id="home"  class="menuImg" src="../static/principal.png" /><a href="index.html">Principal</a></li>
+					<li><img id="consulta" class="menuImg" src="../static/lupa.jpg"/><a href="/consulta.html">Consulta</a></li>
+					<li><img id="icono" class="menuImg" src="../static/agregar.png"/>
+					<a href="/menu_agregar">Agregar</a></li>
+					<a href="/agregar">Restaurantes</a><br/>
+					<a href="/agregar_platillo">Platillos</a><br/>
+					<li><img id="icono" class="menuImg" src="../static/informacion.png"/><a href="curriculum.html">Info</a></li>
+				</ul>
+			</section>
+			<section id="foto">
+				<img id="fondo" src="../static/fondo.jpg" />
+			</section>
+		</section>
+		<section id="final">
+			<h4>Aplicaci&oacute;n hecha por: Jose Rolando Li Acuna & Ver&oacute;nica Vargas Mora</h4>
+		</section>
+	</section>
+</body>
+</html>

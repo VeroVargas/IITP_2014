@@ -1,0 +1,61 @@
+$def with (title, name, *numbers)
+<html>
+<head>
+  <title>Gourmet Virtual</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="../static/estilo.css" media="screen" />
+</head>
+
+<body>
+	<section id="principal">
+		<section id="titulo">
+				<h1>Gourmet Virtual</h1>
+		</section>
+		<section id="cuerpo">
+			<section id="menu">
+					<img id="imagen" src="../static/logo.jpg" /><br/>
+				<ul class="navbar">
+					<li><img id="home"  class="menuImg" src="../static/principal.png" /><a href="index">Principal</a></li>
+					<li><img id="consulta" class="menuImg" src="../static/lupa.jpg"/><a href="/consulta">Consulta</a></li>
+					<li><img id="icono" class="menuImg" src="../static/agregar.png"/><a href="/menu_agregar">Agregar</a></li>
+					<li><img id="icono" class="menuImg" src="../static/informacion.png"/><a href="curriculum.html">Info</a></li>
+				</ul>
+			</section>
+			<section id="foto">
+			<form name="main" method="post" action="agregar">
+			<table id="tabla">
+				<tr> Agregar restaurantes </tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;Nombre</td>
+					<td><input type="text" id="txtNombre" name="txtNombre"/></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;Tipo de comida</td>
+					<td><input type="text" id="txtComida" name="txtComida"/></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;Ubicaci&oacute;n</td>
+					<td><input type="text" id="txtUbicacion" name="txtUbicacion"/></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;Tel&eacute;fono</td>
+					<td><input type="text" id="txtTelefono" name="txtTelefono"/></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;</td>
+					<td><a href="/horario">Insertar horario</a></td>
+				</tr>
+				<tr>
+					<td colspan="1"><input type="submit" text="agregar" id="btnSubmit" name="btnSubmit"/></td>
+				</tr>
+			</table>
+		</form>
+			</section>
+		</section>
+		<section id="final">
+			<h4>Aplicaci&oacute;n hecha por: Jose Rolando Li Acuna & Ver&oacute;nica Vargas Mora</h4>
+		</section>
+	</section>
+</body>
+</html>

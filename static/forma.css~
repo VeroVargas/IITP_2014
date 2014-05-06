@@ -1,0 +1,64 @@
+*{
+	
+	font-family:"Segoe UI";
+}
+body{
+	background-color:  #B0C4DE;
+}
+
+section#principal{
+	background-color: white;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	height: 90%;
+	box-shadow: 0px 1px 10px #5E5E5E;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px;
+	
+}
+
+section#titulo{
+	background-color:  #778899;
+	max-width: 100%;
+	min-height: 5%;
+	padding:0;
+	text-align: center;
+	box-shadow: 0px 1px 10px #5E5E5E;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px
+}
+
+section#titulo h1{
+	font-size:1.3em;
+	color:#778899;
+}
+
+section#cuerpo{
+	
+	max-width: 70em;
+	min-height: 30%;
+	padding:0;
+	text-align: left;
+}
+
+section#imagen{
+	width: 50%;
+	text-align: center
+}
+
+section#final{
+	background-color: #778899;
+	max-width: auto;
+	min-height: 5%;
+	padding:0;
+	text-align: center;
+}
+
+section#final h4{
+	color:white;
+}
+
+
+

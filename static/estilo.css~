@@ -1,0 +1,177 @@
+@media only screen and (min-width: 830px) and (max-width: 1823px){
+*{
+	
+	font-family:"Segoe UI";
+}
+body{
+	background-color:  #B0C4DE;
+}
+
+section#principal{
+	background-color: white;
+	margin-top:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	height: 90%;
+	box-shadow: 0px 1px 10px #5E5E5E;
+	border-radius:8px /*Para que esto sirva en mozila tiene que poner lo siguiente*/
+	-moz-border-radius:8px;
+	
+}
+
+section#titulo{
+	background-color:  #778899;
+	max-width: 100%;
+	min-height: 5%;
+	padding:0;
+	text-align: center;
+	box-shadow: 0px 1px 10px #5E5E5E;
+	border-top-left-radius:8px;
+	border-top-right-radius:8px
+}
+
+section#titulo h1{
+	font-size:1.5em;
+	color:white;
+}
+
+section#cuerpo{
+	max-width: 70em;
+	min-height: 30%;
+	padding:0;
+	text-align: left;
+}
+
+section#menu, section#foto{
+	display: inline-block;
+	max-width: auto;
+	min-height: auto;
+	padding: 0.25em;
+	vertical-align: top;
+	width: 40%;
+	height: 70%;
+	text-align: left
+}
+
+section#foto{
+	width: 50%;
+	text-align: center;
+
+}
+
+div#tbl_derecha{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul.navbar {
+	list-style-type: none;
+	padding: 0;
+	margin-left:20%;
+	margin-right:10%;
+    	height: 10%
+	width: 30%
+}
+ul.navbar li {
+	display:block;
+    background: white;
+    margin: 1em 0.2em;
+    border-right: 0.5em solid #778899;
+    border-left: 0.1em solid #778899;
+    border-top: 0.1em solid #778899;
+    border-bottom: 0.1em solid #778899;
+	cursor:pointer; cursor: hand;
+	
+}
+
+ul.navbar li  :hover{
+    color: gray;
+}
+
+ul.navbar a {
+	width:100px;
+	padding:5px 0;
+	text-decoration:none;
+	font-size:15px;
+	/*border-right:1px solid #fff;*/
+	font-weight:bold;
+	border-radius:6px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+
+a:link {color: #778899;
+
+}
+a:visited {color: #778899;}
+
+table#tabla{
+	border:2px;
+	border-color: #B0C4DE
+}
+
+#imagen{
+	width: 100%;
+	height: 40%
+}
+
+.menuImg{
+	width:30px !important;
+	height:30px !important;
+}
+
+#home{
+	width: 25%;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: 5%;
+}
+
+#consulta{
+	width: 25%;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: 5%;
+}
+
+#icono{
+	width: 25%;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: 5%;
+}
+
+#fondo{
+	width: 100%;
+	height: 70%
+}
+
+section#final{
+	background-color: #778899;
+	max-width: auto;
+	min-height: 5%;
+	padding:0;
+	text-align: center;
+}
+
+section#final h4{
+	color:white;
+}
+
+.text{
+	margin: 5px;
+  padding: 0 10px;
+  color: #404040;
+  background: white;
+  border: 1px solid #A4A4A4;
+  border-radius: 2px;
+  font-size:15px;
+  height:25px;
+  width:220px;
+}
+}

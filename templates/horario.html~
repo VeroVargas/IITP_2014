@@ -1,0 +1,43 @@
+$def with (title, name, *numbers)
+<html>
+<head>
+  <title>Gourmet Virtual</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="../static/forma.css" media="screen" />
+</head>
+
+<body>
+	<section id="principal">
+		<section id="titulo">
+				<h1>Gourmet Virtual</h1>
+		</section>
+		<section id="cuerpo">
+			<img id="imagen" src="../static/logo.jpg" /><br/>
+			<form name="main" method="post" action="horario">
+			<table id="tabla">
+				<tr> Insertar horario </tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;D&iacute;a</td>
+					<td><input type="text" id="txtNombre" name="txtNombre"/></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;Hora de apertura</td>
+					<td><input type="text" id="txtComida" name="txtComida"/></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;&nbsp;Hora de cierre</td>
+					<td><input type="text" id="txtUbicacion" name="txtUbicacion"/></td>
+				</tr>
+				<tr>
+					<td colspan="1"><input type="submit" text="agregar" id="btnSubmit" name="btnSubmit"/></td>
+				</tr>
+			</table>
+		</form>
+		</section>
+		<section id="final">
+			<h4>Aplicaci&oacute;n hecha por: Jose Rolando Li Acuna & Ver&oacute;nica Vargas Mora</h4>
+		</section>
+	</section>
+</body>
+</html>

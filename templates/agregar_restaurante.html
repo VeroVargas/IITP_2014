@@ -1,0 +1,122 @@
+$def with ()
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Gourmet Virtual</title>
+  <meta charset=utf-8 /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+  <link rel="stylesheet" type="text/css" href="../static/form1.css" media="screen" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		  <link rel="stylesheet" href="/resources/demos/style.css">
+		<script>
+			jQuery(function () {
+				jQuery("#enviar").button({
+				  icons: {primary: "ui-icon-locked"}
+				});
+				jQuery( "#accordion" ).accordion();
+				jQuery( "#accordion" ).accordion("option", { collapsible: true, active: false });
+			});
+		</script>
+
+	<link href="css/ui-lightness/jquery-ui-1.10.4.css" rel="stylesheet">
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery-ui-1.10.4.js"></script>
+	<script type="text/javascript" language="javascript">
+		jQuery(function() {
+			jQuery( "#btn" ).button();
+			
+			jQuery( "#datepicker" ).datepicker
+		});
+		
+		function validar(){  
+			if(jQuery('#txtNombre').val().length < 1) {   
+				jQuery( "#mensaje2" ).dialog(); 
+			}
+			else if(jQuery("#txtComida").val().length < 1){
+				jQuery( "#mensaje2" ).dialog(); 
+			}
+			else if(jQuery("#txtTelefono").val().length < 1){
+				jQuery( "#mensaje2" ).dialog(); 
+			}
+			else if(jQuery("#txtUbicacion").val().length < 1){
+				jQuery( "#mensaje2" ).dialog(); 
+			}
+			else { 				
+				jQuery("#dialog").dialog({
+					resizable: false,
+					height: 200,
+					width: 300,
+					modal: true,
+					buttons: {
+						"Ok": function () {
+							jQuery("#formulario1").submit();
+						},
+				}
+				});
+			}
+		}
+		
+	</script>		
+</head>
+
+<body>
+	<section id="principal">
+		<section id="titulo">
+				<h1>Gourmet Virtual</h1>
+		</section>
+		<section id="cuerpo">
+			<section id="menu">
+					<img id="imagen" src="../static/logo.jpg" /><br/><br/>
+					<section id="accordion">
+  <h3>Consultar</h3>
+  <div>
+    <form name="main" method="post" action="restaurantes">
+                                        <a href="/restaurantes">Ver restaurantes</a><br/><br/>
+                                        </form>
+                                        <form name="main" method="post" action="platillos">
+                                        <a href="/platillos">Ver platillos de restaurante</a><br/><br/></form>
+                                        <form name="main" method="post" action="busqueda">
+                                        <a href="/busqueda">Busqueda de restaurantes por:</a><br/></form>
+  </div>
+  <h3>Agregar</h3>
+  <div>
+    <ul>
+    <li><a href="/agregar_restaurante">Restaurantes</a><br/></li>
+    <li><a href="/agregar_platillo">Platillos</a><br/></li>
+    </ul>
+  </div>
+  </div>
+			</section></section>
+			<section id="foto">
+			<form id="formulario1" name="formulario1" method="post" action="agregar_restaurante">
+			<p>Agregar restaurantes</p>
+			<div id="encabezado">
+			<div id="nombre">&nbsp;Nombre</div>
+			<div id="txtNombre1"><input type="text" id="txtNombre" name="txtNombre"/></div>
+			<div id="nombre"><br/>&nbsp;Tipo de comida</div>
+			<div id="txtComida1"><input type="text" id="txtComida" name="txtComida"/></div>
+			<div id="nombre"><br/>&nbsp;Tel&eacute;fono </div>
+			<div id="txtTelefono1"><input type="text" id="txtTelefono" name="txtTelefono"/></div>
+			<br/><div id="nombre"><br/>&nbsp;Ubicaci&oacute;n</div>
+			<div id="txtUbicacion1"><input type="text" id="txtUbicacion" name="txtUbicacion"/></div>
+			</div>	
+			</br>		
+			<input type="button" id="btn" onclick="validar()" value="Agregar"/>
+		</form>
+			<div id="dialog" title="Restaurante agregado" style="display:none;">
+		<p>Restaurante agregado a la base</p>
+	</div>
+	
+	<div id="mensaje2" title="Alerta" style="display:none;">
+		<p>Ingrese todos los campos</p>
+	</div>
+			</section>
+		</section>
+		<section id="final">
+			<h4>Aplicaci&oacute;n hecha por: Jose Rolando Li Acuna & Ver&oacute;nica Vargas Mora</h4>
+		</section>
+	</section>
+</body>
+</html>
