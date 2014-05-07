@@ -48,6 +48,10 @@ class consulta:
 
 class restaurantes:
     def GET(self):
+        nueva = []
+        nueva.append("hola")
+        nueva.append("adios")
+        nueva.append("chao")
         dato = obtenerRestaurantes()
         return render.restaurantes(dato)
     def POST(self):
@@ -57,7 +61,8 @@ class restaurantes:
 
 class platillos:
     def GET(self):
-        return render.platillos()
+        lista = listaRestaurantes()
+        return render.platillos(lista)
     def POST(self):
         i = web.input()
         raise web.seeother('/platillos')
@@ -71,15 +76,16 @@ class busqueda:
 
 class agregar_platillo:
     def GET(self):
-        return render.agregar_platillo()
+        lista = listaRestaurantes()
+        return render.agregar_platillo(lista)
     def POST(self):
         i = web.input()
-        restaurante=i.txtRestaurante
-        platillo=i.txtPlatillo
-        tipo=i.tipos
-        pais=i.pais
-        ingredientes=i.ingredientes
-        listaIngredientes = "["+ingredientes+"]"
+        restaurante=(i.txtRestaurante).lower()
+        platillo=(i.txtPlatillo).lower()
+        tipo=(i.tipos).lower()
+        pais=(i.pais).lower()
+        ingredientes=(i.ingredientes).lower()
+        listaIngredientes = ("["+ingredientes+"]").lower()
         agregarPlatillo(restaurante,platillo,tipo,pais,listaIngredientes)
         raise web.seeother('/agregar_platillo')
 
