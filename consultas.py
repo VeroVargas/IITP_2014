@@ -1,12 +1,11 @@
 from ctypes import *
 from pyswip.prolog import Prolog
 
-
 def agregarPlatillo(restaurante,platillo,tipo,pais,ingredientes):
-    plat = platillo.replace(" ","_")
-    ingred = ingredientes.replace(" ","")
+    plat = (platillo.replace(" ","_")).lower()
+    ingred = (ingredientes.replace(" ","")).lower()
     p = open("base.pl","a")
-    p.write("platillos("+restaurante+","+plat+","+pais+","+ingred+").\n")
+    p.write("platillos("+restaurante+","+plat+","+tipo+","+pais+","+ingred+").\n")
     p.close()
     texto = open("info.txt","a")
     lista1 = ingred.replace("[","")
@@ -16,11 +15,15 @@ def agregarPlatillo(restaurante,platillo,tipo,pais,ingredientes):
     texto.close()
     
 def agregarRestaurante(nombre,comida,ubicacion,telefono):
+    nom = (nombre.replace(" ","_")).lower()
+    comid = (comida.replace(" ","_")).lower()
+    ubic = (ubicacion.replace(" ","_")).lower()
+    telef = (telefono.replace(" ","-")).lower()
     p = open("base.pl","a")
-    p.write("restaurantes("+nombre+","+comida+","+ubicacion+","+telefono+").\n")
+    p.write("restaurantes("+nom+","+comid+","+ubic+","+telef+").\n")
     p.close()
     texto = open("info.txt","a")
-    texto.write("restaurantes "+nombre+" "+comida+" "+ubicacion+" "+telefono+" \n")
+    texto.write("restaurantes "+nom+" "+comid+" "+ubic+" "+telef+" \n")
     texto.close()
 
 def verRestaurantes():
@@ -41,7 +44,7 @@ def platilloXrestaurante(restaurante):
     p=Prolog()
     p.consult('base.pl')
     platillo = [] 
-    for datos in p.query("platillos("+restaurante+",Platillo,Tipo,Ingredientes)"):
+    for datos in p.query("platillos("+restaurante+",Platillo,Pais,Ingredientes)"):
         platillo.append(datos["Platillo"])
         platillo.append(datos["Tipo"])
         platillo.append(datos["Ingredientes"])
@@ -63,18 +66,16 @@ def platilloXrestaurante(restaurante):
 def obtenerRestaurantes():
     datosRestaurantes = []
     texto = open("info.txt","r")
-    linea=texto.readline()
-    while linea!="":
-        datoLinea = linea.split(" ",1)
-        if(datoLinea[0]=="restaurante"):
-            restaurante = linea.split(" ",5)
+    for dato in texto:
+        datoLinea = dato.split(" ",1)
+        if(datoLinea[0]=="restaurantes"):
+            restaurante = dato.split(" ",5)
             nombre = " Restaurante: "+ restaurante[1]
             datosRestaurantes.append(nombre)
             demas = "Tipo de comida: "+ restaurante[2]+" Ubicacion: "+ restaurante[3]+" Telefono "+ restaurante[4]
             datosRestaurantes.append(demas)
             espacio = " "
             datosRestaurantes.append(espacio)
-        linea=texto.readline()
     texto.close()
     return datosRestaurantes
 
@@ -84,10 +85,46 @@ def listaRestaurantes():
     linea=texto.readline()
     while linea!="":
         datoLinea = linea.split(" ",1)
-        if(datoLinea[0]=="restaurante"):
+        if(datoLinea[0]=="restaurantes"):
             restaurante = linea.split(" ",5)
             nombre = restaurante[1]
             listarestaurantes.append(nombre)
         linea=texto.readline()
     texto.close()
     return listarestaurantes
+
+def obtenerPlatilloRest(restaurante):
+    datosPlatillos = []
+    texto = open("info.txt","r")
+    for dato in texto:
+        datoLinea = dato.split(" ",1)
+        if(datoLinea[0]=="platillos"):
+            platillo = dato.split(" ",5)
+            if(platillo[1]==restaurante):
+                nombre ="Platillo: "+platillo[2]
+                datosPlatillos.append(nombre)
+                ingredientes = "Ingredientes: "+platillo[5]
+                datosPlatillos.append(ingredientes)
+                espacio = " "
+                datosPlatillos.append(espacio)
+    texto.close()
+    return datosPlatillos
+
+def busquedaRestaurante(tipo,valor):
+    p=Prolog()
+    p.consult('base.pl')
+    resultado = []
+    if (tipo=="TipoComida"):
+        for datos in p.query("restaurantes(Nombre,"+valor+",_,_)"):
+            resultado.append(datos["Nombre"])
+        i = 0
+        while (len(resultado) != i):
+            print resultado[i]
+            i = i + 1
+    elif(tipo=="Platilloxpais"):
+        for datos in p.query("platillos(Nombre,_,_,"+valor+",_)"):
+            resultado.append(datos["Nombre"])
+        i = 0
+        while (len(resultado) != i):
+            print resultado[i]
+            i = i + 1

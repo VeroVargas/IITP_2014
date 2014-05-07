@@ -4,10 +4,11 @@ from flask import Flask, render_template, request, url_for
 
 render = web.template.render('./templates/')
 p = Prolog()
+global rest1
+rest1 = ""
 
 urls = (
     '/','index',
-    '/','horario',
     '/','agregar_restaurante',
     '/','consulta',
     '/','menu_agregar',
@@ -22,7 +23,7 @@ urls = (
     '/busqueda','busqueda',
     '/agregar_platillo','agregar_platillo',
     '/menu_agregar','menu_agregar',
-    '/horario','horario',
+    '/resultado_platillos','resultado_platillos'
 )
 
 app = web.application(urls,globals())
@@ -48,10 +49,6 @@ class consulta:
 
 class restaurantes:
     def GET(self):
-        nueva = []
-        nueva.append("hola")
-        nueva.append("adios")
-        nueva.append("chao")
         dato = obtenerRestaurantes()
         return render.restaurantes(dato)
     def POST(self):
@@ -59,13 +56,25 @@ class restaurantes:
         datos = consultas.consulta()
         raise web.seeother('/restaurantes')
 
-class platillos:
+class resultado_platillos:
     def GET(self):
-        lista = listaRestaurantes()
-        return render.platillos(lista)
+        listaRestaurante = []
+        lista = obtenerPlatilloRest(rest1)
+        print lista
+        return render.platillos(listaRestaurante,lista)
     def POST(self):
         i = web.input()
         raise web.seeother('/platillos')
+        
+class platillos:
+    def GET(self):
+        listaRestaurante = listaRestaurantes()
+        lista = []
+        return render.platillos(listaRestaurante,lista)
+    def POST(self):
+        i = web.input()
+        rest1 = i.txtRestaurante
+        raise web.seeother('/resultado_platillos')
 
 class busqueda:
         def GET(self):
@@ -80,12 +89,12 @@ class agregar_platillo:
         return render.agregar_platillo(lista)
     def POST(self):
         i = web.input()
-        restaurante=(i.txtRestaurante).lower()
-        platillo=(i.txtPlatillo).lower()
-        tipo=(i.tipos).lower()
-        pais=(i.pais).lower()
-        ingredientes=(i.ingredientes).lower()
-        listaIngredientes = ("["+ingredientes+"]").lower()
+        restaurante=i.txtRestaurante
+        platillo=i.txtPlatillo
+        tipo=i.tipos
+        pais=i.pais
+        ingredientes=i.ingredientes
+        listaIngredientes = "["+ingredientes+"]"
         agregarPlatillo(restaurante,platillo,tipo,pais,listaIngredientes)
         raise web.seeother('/agregar_platillo')
 
@@ -99,13 +108,6 @@ class agregar_restaurante:
         ubicacion=i.txtUbicacion
         telefono=str(i.txtTelefono)
         agregarRestaurante(nombre,comida,ubicacion,telefono)
-        raise web.seeother('/agregar_restaurante')
-        
-class horario:
-    def GET(self):
-        return render.horario("Hola desde Python", "Bye", "14", "8", "25", "42", "19")
-    def POST(self):
-        i = web.input()
         raise web.seeother('/agregar_restaurante')
 
 if __name__ == "__main__":
