@@ -86,9 +86,10 @@ $def with (datos)
 					<p>Agregar platillos</p>
 					<div id="encabezado">
 					<div id="nombre">&nbsp;Restaurante</div>
-					<div id="txtRestaurante1"><select name="txtRestaurante" id="txtRestaurante">
+					<div id="txtRestaurante1"><select name="txtRestaurante" id="txtRestaurante" class="text">
 						$for restaurante in datos:
-							<option value="restaurante">$restaurante</option>
+							<option value=$restaurante>$restaurante</option>
+					</select>
 					</div>
 					<div id="nombre"><br/>&nbsp;Platillo</div>
 					<div id="txtPlatillo1"><input type="text" id="txtPlatillo" name="txtPlatillo"/></div>

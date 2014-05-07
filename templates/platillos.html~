@@ -1,4 +1,4 @@
-$def with (datos)
+$def with (datos,lista)
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 	<head>
@@ -30,6 +30,8 @@ $def with (datos)
 				if(jQuery('#txtRestaurante').val().length < 1) {   
 					jQuery( "#mensaje2" ).dialog(); 
 				}
+				else{
+					jQuery("#formulario1").submit();}
 			}
 		</script>		
 </head>
@@ -64,15 +66,21 @@ $def with (datos)
 			</section>
 			<section id="foto">
 				
-				<form id="formulario1" name="formulario1" method="post" action="platillo">
+				<form id="formulario1" name="formulario1" method="post" action="platillos">
 					<p>Lista de platillos de un restaurante</p>
 					<div id="encabezado">
-					<div id="nombre">&nbsp;Restaurante</div>
-					<div id="txtRestaurante1"><select name="txtRestaurante" id="txtRestaurante" class="text">
-						$for restaurante in datos:
-						<option value="AF">$restaurante</option>
-					</br>		
-					<input type="button" id="btn" onclick="validar()" value="Consultar"/>
+						<div id="nombre">&nbsp;Restaurante</div>
+						<div id="txtRestaurante1"><select name="txtRestaurante" id="txtRestaurante" class="text">
+							$for restaurante in datos:
+								<option value="restaurante">$restaurante</option>
+						</select>
+						</div>
+						</br>		
+						<input type="button" id="btn" onclick="validar()" value="Consultar"/>
+						</br>
+							$for platillos in lista: 
+								<p><h4>$platillos</h4></p>
+						</br>
 					</div>
 		</form>
 		<div id="mensaje2" title="Alerta" style="display:none;">
