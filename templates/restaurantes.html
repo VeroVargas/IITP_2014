@@ -50,8 +50,11 @@ $def with (datos)
   </div>
 			</section></section>
 			<section id="foto">
-				Lista de restaurantes
-				</br></br>$datos</br>
+				<h2>Lista de restaurantes</h2>
+				</br>
+					$for number in datos: 
+						<p><h4>$number</h4></p>
+				</br>
 			</section>
 		</section>
 		<section id="final">

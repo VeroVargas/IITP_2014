@@ -1,4 +1,4 @@
-$def with ()
+$def with (datos)
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 	<head>
@@ -86,7 +86,11 @@ $def with ()
 					<p>Agregar platillos</p>
 					<div id="encabezado">
 					<div id="nombre">&nbsp;Restaurante</div>
-					<div id="txtRestaurante1"><input type="text" id="txtRestaurante" name="txtRestaurante"/></div>
+					<div id="txtRestaurante1"><select name="txtRestaurante" id="txtRestaurante" class="text">
+						$for restaurante in datos:
+							<option value="restaurante">$restaurante</option>
+					</select>
+					</div>
 					<div id="nombre"><br/>&nbsp;Platillo</div>
 					<div id="txtPlatillo1"><input type="text" id="txtPlatillo" name="txtPlatillo"/></div>
 					<div id="nombre"><br/>&nbsp;Tipo</div>

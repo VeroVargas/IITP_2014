@@ -1,4 +1,4 @@
-$def with ()
+$def with (datos)
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 	<head>
@@ -68,12 +68,11 @@ $def with ()
 					<p>Lista de platillos de un restaurante</p>
 					<div id="encabezado">
 					<div id="nombre">&nbsp;Restaurante</div>
-					<div id="txtRestaurante1"><input type="text" id="txtRestaurante" name="txtRestaurante"/>
+					<div id="txtRestaurante1"><select name="txtRestaurante" id="txtRestaurante" class="text">
+						$for restaurante in datos:
+						<option value="AF">$restaurante</option>
+					</br>		
 					<input type="button" id="btn" onclick="validar()" value="Consultar"/>
-					</div>
-					
-							
-					
 					</div>
 		</form>
 		<div id="mensaje2" title="Alerta" style="display:none;">

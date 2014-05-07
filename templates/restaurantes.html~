@@ -1,12 +1,24 @@
 $def with (datos)
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-
 <html>
 <head>
   <title>Gourmet Virtual</title>
   <meta charset=utf-8 /> 
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
-  <link rel="stylesheet" type="text/css" href="../static/form.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="../static/form1.css" media="screen" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		  <link rel="stylesheet" href="/resources/demos/style.css">
+		<script>
+			jQuery(function () {
+				jQuery("#enviar").button({
+				  icons: {primary: "ui-icon-locked"}
+				});
+				jQuery( "#accordion" ).accordion();
+				jQuery( "#accordion" ).accordion("option", { collapsible: true, active: false });
+			});
+		</script>		
 </head>
 
 <body>
@@ -16,18 +28,33 @@ $def with (datos)
 		</section>
 		<section id="cuerpo">
 			<section id="menu">
-					<img id="imagen" src="../static/gif.gif" /><br/>
-				<ul class="navbar">
-					<li><img id="home"  class="menuImg" src="../static/principal.png" /><a href="/index">Principal</a></li>
-					<li><img id="consulta" class="menuImg" src="../static/lupa.jpg"/><a href="/consulta">Consulta</a></li>
-					<li><img id="icono" class="menuImg" src="../static/agregar.png"/>
-					<a href="/menu_agregar">Agregar</a></li>
-					<li><img id="icono" class="menuImg" src="../static/informacion.png"/><a href="curriculum.html">Info</a></li>
-				</ul>
-			</section>
+					<img id="imagen" src="../static/logo.jpg" /><br/><br/>
+					<section id="accordion">
+  <h3>Consultar</h3>
+  <div>
+    <form name="main" method="post" action="restaurantes">
+                                        <a href="/restaurantes">Ver restaurantes</a><br/><br/>
+                                        </form>
+                                        <form name="main" method="post" action="platillos">
+                                        <a href="/platillos">Ver platillos de restaurante</a><br/><br/></form>
+                                        <form name="main" method="post" action="busqueda">
+                                        <a href="/busqueda">Busqueda de restaurantes por:</a><br/></form>
+  </div>
+  <h3>Agregar</h3>
+  <div>
+    <ul>
+    <li><a href="/agregar_restaurante">Restaurantes</a><br/></li>
+    <li><a href="/agregar_platillo">Platillos</a><br/></li>
+    </ul>
+  </div>
+  </div>
+			</section></section>
 			<section id="foto">
-				Lista de restaurantes
-				</br>$datos</br>
+				<h2>Lista de restaurantes</h2>
+				</br></br>
+					$for number in datos: 
+						<p><h4>$number</h4></p>
+				</br>
 			</section>
 		</section>
 		<section id="final">
